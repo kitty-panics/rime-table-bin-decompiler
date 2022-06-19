@@ -1,19 +1,48 @@
-# rime_table_bin_decompiler
-反编译 Rime 的`xxx.table.bin`文件。
+# rime-table-bin-decompiler
 
-这个项目可以简单的用于反编译Rime的`xxx.table.bin`以生成`xxx.dict.yaml`文本文件。
+反编译 [RIME] 的 `xxx.table.bin` 二进制词典文件，生成 `xxx.dict.yaml`
+纯文本词典文件。
 
-这个项目中的大部分代码是从LIBRIME源代码中copy过来的，因为我没法在我的Macbook上编译librime。
+[RIME]: https://rime.im
 
-编译方法：(需要安装cmake, make等工具和boost库)
-```bash
-cmake .
-make
+## 简介
+
+Fork 自 [whjiang/rime_table_bin_decompiler]，相较于原项目，有以下变动。
+
++ 修复在 Linux 系统上的编译错误
++ 更易读的 README
+
+[whjiang/rime_table_bin_decompiler]: https://github.com/whjiang/rime_table_bin_decompiler
+
+## 编译
+
+### 工具链
+
++ [GNU ToolChain]
++ [Boost]
++ [CMake]
+
+[GNU ToolChain]: https://wiki.archlinux.org/title/GNU#Toolchain
+[Boost]: https://www.boost.org
+[CMake]: https://www.cmake.org
+
+### 步骤
+
+1. `git clone --depth=1 git@github.com:kitty-panics/rime-table-bin-decompiler.git`
+2. `cd rime-table-bin-decompiler && mkdir build && cd build`
+3. `cmake ..`
+4. `make`
+
+## 使用
+
+注意，由于 `xxx.table.bin` 二进制词库文件没有元数据信息，反编译生成的 `xxx.dict.yaml`
+纯文本词典文件的文件头中的元数据信息，是根据常见的元数据信息填补进去的，可能是错误的，
+需自行修正。
+
+```Bash
+# 反编译二进制词库并标准输出：
+rime-table-bin-decompiler xxx.table.bin
+
+# 反编译二进制词库并输出到纯文本词库文件中：
+rime-table-bin-decompiler xxx.table.bin > xxx.dict.yaml
 ```
-
-用法:
-```
-rime_table_bin_decompiler xxx.table.bin >xxx.dict.yaml.
-```
-
-注意：因为`xxx.table.bin`没有元数据信息，所以生成的`xxx.dict.yaml`的文件头中的元数据是根据常见的元数据填进去的，可能是错误的。用户需要自己进行修改。
