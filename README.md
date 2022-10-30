@@ -3,7 +3,7 @@
 反编译 [RIME] 的 `xxx.table.bin` 二进制词典文件，生成 `xxx.dict.yaml`
 纯文本词典文件。
 
-[RIME]: https://rime.im
+[RIME]: https://github.com/rime/librime
 
 ## 简介
 
@@ -19,8 +19,8 @@ Fork 自 [whjiang/rime_table_bin_decompiler]，相较于原项目，有以下变
 ### 工具链
 
 + [GNU ToolChain]
-+ [Boost]
 + [CMake]
++ [Boost]
 
 [GNU ToolChain]: https://wiki.archlinux.org/title/GNU#Toolchain
 [Boost]: https://www.boost.org
@@ -46,3 +46,9 @@ rime-table-bin-decompiler xxx.table.bin
 # 反编译二进制词库并输出到纯文本词库文件中：
 rime-table-bin-decompiler xxx.table.bin > xxx.dict.yaml
 ```
+
+## 许可证
+
+[License]
+
+[License]: LICENSE

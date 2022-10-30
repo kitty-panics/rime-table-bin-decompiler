@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.13)
-project(rime-table-bin-decompiler)
+project(rime-table-decompiler)
 
 set(CMAKE_CXX_STANDARD 14)
 find_package(Boost REQUIRED COMPONENTS system filesystem)
@@ -25,7 +25,7 @@ include_directories(thirdparty/marisa-trie/lib/marisa/grimoire/vector)
 include_directories(thirdparty/marisa-trie/tests)
 include_directories(thirdparty/marisa-trie/tools)
 
-add_executable(rime-table-bin-decompiler main.cpp mapped_file.cc table.cc vocabulary.cc
+add_executable(rime-table-decompiler main.cpp mapped_file.cc table.cc vocabulary.cc
         string_table.cc
         thirdparty/marisa-trie/lib/marisa/grimoire/algorithm/sort.h
         thirdparty/marisa-trie/lib/marisa/grimoire/io/mapper.cc
@@ -76,6 +76,6 @@ add_executable(rime-table-bin-decompiler main.cpp mapped_file.cc table.cc vocabu
 
 
 
-link_directories(rime-table-bin-decompiler ${Boost_LIBRARY_DIRS})
+link_directories(rime-table-decompiler ${Boost_LIBRARY_DIRS})
 
-target_link_libraries(rime-table-bin-decompiler ${Boost_LIBRARIES})
+target_link_libraries(rime-table-decompiler ${Boost_LIBRARIES})
